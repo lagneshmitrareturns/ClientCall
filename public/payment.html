@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LagneshMitra – Secure Payment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="card">
+      <h2>💳 Secure Consultation Payment</h2>
+      <p class="muted">
+        Complete payment to unlock uninterrupted private chat
+      </p>
+    </header>
+
+    <!-- Payment Summary -->
+    <section class="card">
+      <h3>Consultation Details</h3>
+
+      <div class="summary">
+        <p><strong>Service:</strong> <span id="serviceType">Marriage Consultation</span></p>
+        <p><strong>Amount:</strong> ₹<span id="amount">1999</span></p>
+        <p><strong>Status:</strong> <span id="paymentStatus">Pending</span></p>
+      </div>
+
+      <button id="payNowBtn" class="btn btn-success full-width">
+        Pay Now
+      </button>
+    </section>
+
+    <!-- After Payment -->
+    <section class="card hidden" id="successBox">
+      <h3>✅ Payment Successful</h3>
+      <p>You may now continue your private consultation.</p>
+
+      <a href="chat.html" class="btn btn-primary full-width">
+        Go Back to Chat
+      </a>
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="../src/firebase.js"></script>
+  <script type="module" src="../src/payments.js"></script>
+</body>
+</html>
