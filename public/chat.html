@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LagneshMitra – Client Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="card">
+      <h2>🔮 LagneshMitra – Private Consultation</h2>
+      <p class="muted">Secure one-to-one chat with astrologer</p>
+    </header>
+
+    <!-- Chat Window -->
+    <section class="card chat-window" id="chatWindow">
+      <!-- Messages will render here -->
+    </section>
+
+    <!-- Message Input -->
+    <section class="card">
+      <form id="chatForm">
+        <textarea
+          id="messageInput"
+          placeholder="Type your message here..."
+          required
+        ></textarea>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">
+            Send
+          </button>
+
+          <button
+            type="button"
+            id="payBtn"
+            class="btn btn-success"
+          >
+            Pay & Continue
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </div>
+
+  <!-- Firebase + App Scripts -->
+  <script type="module" src="../src/firebase.js"></script>
+  <script type="module" src="../src/chat.js"></script>
+  <script type="module" src="../src/payments.js"></script>
+</body>
+</html>
