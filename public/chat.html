@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>LagneshMitra – Client Chat</title>
+  <title>LagneshMitra – Private Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Global CSS -->
@@ -10,49 +10,70 @@
 </head>
 
 <body>
+
   <div class="container">
 
-    <!-- Header -->
-    <header class="card">
-      <h2>🔮 LagneshMitra – Private Consultation</h2>
-      <p class="muted">Secure one-to-one chat with astrologer</p>
+    <!-- Chat Header -->
+    <header class="card" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+
+      <div>
+        <h3 style="margin-bottom:4px;">🔮 LagneshMitra</h3>
+        <span class="badge badge-closed">Offline</span>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <a href="index.html" class="btn btn-danger" style="font-size:13px;">
+          ← Back to Home
+        </a>
+      </div>
+
     </header>
 
-    <!-- Chat Window -->
-    <section class="card chat-window" id="chatWindow">
-      <!-- Messages will render here -->
-    </section>
+    <!-- Chat Box -->
+    <section class="chat-box card">
 
-    <!-- Message Input -->
-    <section class="card">
-      <form id="chatForm">
-        <textarea
+      <!-- Messages -->
+      <div class="chat-messages" id="chatWindow">
+        <!-- Messages injected dynamically -->
+      </div>
+
+      <!-- Input Bar -->
+      <form id="chatForm" class="chat-input">
+        <input
+          type="text"
           id="messageInput"
-          placeholder="Type your message here..."
+          placeholder="Type your message…"
+          autocomplete="off"
           required
-        ></textarea>
+        />
 
-        <div class="actions">
-          <button type="submit" class="btn btn-primary">
-            Send
-          </button>
+        <button type="submit" class="btn btn-primary">
+          Send
+        </button>
 
-          <button
-            type="button"
-            id="payBtn"
-            class="btn btn-success"
-          >
-            Pay & Continue
-          </button>
-        </div>
+        <button
+          type="button"
+          id="payBtn"
+          class="btn btn-success"
+        >
+          Pay
+        </button>
       </form>
+
     </section>
+
+    <!-- Footer -->
+    <div class="footer muted">
+      Confidential · One-to-one consultation · LagneshMitra responds when online
+    </div>
 
   </div>
 
-  <!-- Firebase + App Scripts -->
+  <!-- Scripts -->
   <script type="module" src="../src/firebase.js"></script>
   <script type="module" src="../src/chat.js"></script>
   <script type="module" src="../src/payments.js"></script>
+
 </body>
 </html>
