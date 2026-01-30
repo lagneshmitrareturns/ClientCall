@@ -50,7 +50,7 @@ body {
 .card {
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding: 16px;
+  padding: 26px;
   border: 1px solid var(--border);
 }
 
