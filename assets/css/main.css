@@ -52,6 +52,7 @@ body {
   border-radius: var(--radius);
   padding: 26px;
   border: 1px solid var(--border);
+  margin-bottom: 16px;
 }
 
 /* =========================
@@ -213,7 +214,7 @@ textarea {
 }
 
 /* =========================
-   Landing / Coming Soon
+   Landing / Hero
    ========================= */
 
 .hero {
@@ -232,10 +233,85 @@ textarea {
   margin: auto;
 }
 
-.hero a {
+/* =========================
+   POSTS PAGE (NEW)
+   ========================= */
+
+.posts-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left panel */
+.posts-sidebar {
+  width: 10%;
+  min-width: 180px;
+  background: #020617;
+  border-right: 1px solid var(--border);
+  padding: 16px;
+}
+
+.posts-sidebar h3 {
+  margin-bottom: 12px;
   color: var(--primary);
-  font-weight: 600;
-  text-decoration: none;
+}
+
+.posts-sidebar ul {
+  list-style: none;
+}
+
+.posts-sidebar li {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.posts-sidebar li:hover,
+.posts-sidebar li.active {
+  background: rgba(245,158,11,0.15);
+  color: var(--primary);
+}
+
+/* Right panel */
+.posts-feed {
+  width: 90%;
+  padding: 20px;
+}
+
+/* Post card */
+.post-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.post-card h2 {
+  margin-bottom: 8px;
+}
+
+.post-excerpt {
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.post-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.post-full {
+  margin-top: 14px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* =========================
@@ -261,5 +337,19 @@ textarea {
 
   .hero h1 {
     font-size: 28px;
+  }
+
+  .posts-layout {
+    flex-direction: column;
+  }
+
+  .posts-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .posts-feed {
+    width: 100%;
   }
 }
