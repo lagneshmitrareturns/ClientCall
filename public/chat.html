@@ -14,63 +14,94 @@
   <div class="container">
 
     <!-- Chat Header -->
-    <header class="card chat-header">
-
-      <div class="chat-header-left">
+    <header class="card chat-header" style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
         <h3>🔮 LagneshMitra</h3>
         <span class="badge badge-closed">Offline</span>
       </div>
 
-      <a href="index.html" class="btn btn-danger back-home-btn">
+      <a href="index.html" class="btn btn-danger">
         ← Back to Home
       </a>
-
     </header>
 
     <!-- Chat Box -->
     <section class="chat-box card">
 
       <!-- Messages -->
-      <div class="chat-messages" id="chatWindow">
-        <!-- Messages injected dynamically -->
-      </div>
+      <div class="chat-messages" id="chatWindow"></div>
 
       <!-- Input Bar -->
       <form id="chatForm" class="chat-input">
+
+        <!-- Attachment -->
+        <label for="fileInput" class="attach-btn">📎</label>
+        <input
+          type="file"
+          id="fileInput"
+          hidden
+          accept="image/*,.pdf,.doc,.docx"
+        />
+
         <input
           type="text"
           id="messageInput"
           placeholder="Type your message…"
           autocomplete="off"
-          required
         />
 
         <button type="submit" class="btn btn-primary">
           Send
         </button>
-
-        <button
-          type="button"
-          id="payBtn"
-          class="btn btn-success"
-        >
-          Pay
-        </button>
       </form>
 
     </section>
 
-    <!-- Footer -->
     <div class="footer muted">
       Confidential · One-to-one consultation · LagneshMitra responds when online
     </div>
 
   </div>
 
-  <!-- Scripts -->
+  <!-- UI Logic -->
+  <script>
+    const form = document.getElementById("chatForm");
+    const input = document.getElementById("messageInput");
+    const chatWindow = document.getElementById("chatWindow");
+    const fileInput = document.getElementById("fileInput");
+
+    // Text message send
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMessage(text, "user");
+      input.value = "";
+    });
+
+    // File attachment
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      appendMessage(`📎 ${file.name}`, "user");
+      fileInput.value = "";
+    });
+
+    function appendMessage(content, type) {
+      const msg = document.createElement("div");
+      msg.className = `message ${type}`;
+      msg.textContent = content;
+      chatWindow.appendChild(msg);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+  </script>
+
+  <!-- Firebase (kept for later sync) -->
   <script type="module" src="../src/firebase.js"></script>
   <script type="module" src="../src/chat.js"></script>
-  <script type="module" src="../src/payments.js"></script>
 
 </body>
 </html>
