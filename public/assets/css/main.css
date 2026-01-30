@@ -9,8 +9,12 @@
   --primary: #f59e0b;
   --secondary: #22c55e;
   --danger: #ef4444;
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
+
+  /* TEXT COLORS */
+  --text-main: #dbeafe;        /* soft blue */
+  --text-muted: #94a3b8;       /* slate blue */
+  --text-heading: #bfdbfe;     /* light blue */
+
   --border: #374151;
   --radius: 12px;
 }
@@ -50,8 +54,9 @@ body {
 .card {
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding: 16px;
+  padding: 18px;
   border: 1px solid var(--border);
+  margin-bottom: 16px;
 }
 
 /* =========================
@@ -89,7 +94,7 @@ body {
 
 .btn-primary {
   background: var(--primary);
-  color: #000;
+  color: #020617;
 }
 
 .btn-primary:hover {
@@ -104,6 +109,10 @@ body {
 .btn-danger {
   background: var(--danger);
   color: #fff;
+}
+
+.full-width {
+  width: 100%;
 }
 
 /* =========================
@@ -213,29 +222,75 @@ textarea {
 }
 
 /* =========================
-   Landing / Coming Soon
+   Landing / Hero
    ========================= */
 
 .hero {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 12px;
+  font-size: 38px;
+  margin-bottom: 10px;
+  color: var(--text-heading);
+  font-family: "Playfair Display", serif; /* cursive accent */
+}
+
+.hero .tagline {
+  font-style: italic;
+  letter-spacing: 0.4px;
 }
 
 .hero p {
   color: var(--text-muted);
-  max-width: 600px;
+  max-width: 620px;
   margin: auto;
 }
 
-.hero a {
-  color: var(--primary);
+/* =========================
+   Proof / Hall of Fame
+   ========================= */
+
+.proof {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.proof h2 {
+  color: var(--text-heading);
+  margin-bottom: 6px;
+  font-family: "Playfair Display", serif;
+}
+
+.proof p {
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.proof-card {
+  height: 160px;
+  border-radius: 14px;
+  border: 2px dashed rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 600;
-  text-decoration: none;
+  color: rgba(219,234,254,0.6);
+  transition: 0.3s ease;
+}
+
+.proof-card:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(245,158,11,0.06);
 }
 
 /* =========================
