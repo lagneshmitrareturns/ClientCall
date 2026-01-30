@@ -5,103 +5,69 @@
   <title>LagneshMitra – Private Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Global CSS -->
   <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- Chat Header -->
-    <header class="card chat-header" style="display:flex;justify-content:space-between;align-items:center;">
-      <div>
-        <h3>🔮 LagneshMitra</h3>
-        <span class="badge badge-closed">Offline</span>
-      </div>
-
-      <a href="index.html" class="btn btn-danger">
-        ← Back to Home
-      </a>
-    </header>
-
-    <!-- Chat Box -->
-    <section class="chat-box card">
-
-      <!-- Messages -->
-      <div class="chat-messages" id="chatWindow"></div>
-
-      <!-- Input Bar -->
-      <form id="chatForm" class="chat-input">
-
-        <!-- Attachment -->
-        <label for="fileInput" class="attach-btn">📎</label>
-        <input
-          type="file"
-          id="fileInput"
-          hidden
-          accept="image/*,.pdf,.doc,.docx"
-        />
-
-        <input
-          type="text"
-          id="messageInput"
-          placeholder="Type your message…"
-          autocomplete="off"
-        />
-
-        <button type="submit" class="btn btn-primary">
-          Send
-        </button>
-      </form>
-
-    </section>
-
-    <div class="footer muted">
-      Confidential · One-to-one consultation · LagneshMitra responds when online
+  <!-- CHAT HEADER -->
+  <div class="card chat-header">
+    <div>
+      <h3>🔮 LagneshMitra</h3>
+      <span class="badge badge-closed">Offline</span>
     </div>
+
+    <a href="index.html" class="btn btn-danger" style="font-size:13px;">
+      ← Home
+    </a>
+  </div>
+
+  <!-- CHAT BOX -->
+  <div class="chat-box">
+
+    <div class="chat-messages" id="chatMessages">
+      <!-- messages will appear here -->
+    </div>
+
+    <!-- INPUT -->
+    <form id="chatForm" class="chat-input">
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Type a message…"
+        autocomplete="off"
+        required
+      />
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
 
   </div>
 
-  <!-- UI Logic -->
-  <script>
-    const form = document.getElementById("chatForm");
-    const input = document.getElementById("messageInput");
-    const chatWindow = document.getElementById("chatWindow");
-    const fileInput = document.getElementById("fileInput");
+</div>
 
-    // Text message send
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+<script>
+  const form = document.getElementById("chatForm");
+  const input = document.getElementById("messageInput");
+  const messages = document.getElementById("chatMessages");
 
-      const text = input.value.trim();
-      if (!text) return;
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-      appendMessage(text, "user");
-      input.value = "";
-    });
+    const text = input.value.trim();
+    if (!text) return;
 
-    // File attachment
-    fileInput.addEventListener("change", () => {
-      const file = fileInput.files[0];
-      if (!file) return;
+    const msg = document.createElement("div");
+    msg.className = "message user";
+    msg.innerText = text;
 
-      appendMessage(`📎 ${file.name}`, "user");
-      fileInput.value = "";
-    });
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
 
-    function appendMessage(content, type) {
-      const msg = document.createElement("div");
-      msg.className = `message ${type}`;
-      msg.textContent = content;
-      chatWindow.appendChild(msg);
-      chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
-  </script>
-
-  <!-- Firebase (kept for later sync) -->
-  <script type="module" src="../src/firebase.js"></script>
-  <script type="module" src="../src/chat.js"></script>
+    input.value = "";
+  });
+</script>
 
 </body>
 </html>
