@@ -1,22 +1,102 @@
 /* =========================
-   Responsive
+   Responsive – Mobile & Tablet
+   ========================= */
+
+/* =========================
+   Tablets & Mobiles
    ========================= */
 
 @media (max-width: 768px) {
+
+  /* =========================
+     Chat Page
+     ========================= */
+
   .chat-box {
     height: calc(100vh - 220px);
   }
 
+  .chat-input {
+    padding: 8px;
+  }
+
+  /* =========================
+     Posts Layout
+     ========================= */
+
+  /* Switch 10–90 grid → stacked */
   .posts-layout {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
+  /* Sidebar goes below content */
   .posts-sidebar {
     order: 2;
-    margin-top: 24px;
+    margin-top: 16px;
+    padding: 14px;
+    font-size: 13px;
   }
 
+  .posts-sidebar ul li {
+    margin-bottom: 4px;
+  }
+
+  /* Content first */
   .posts-content {
     order: 1;
   }
+
+  /* =========================
+     Post Cards
+     ========================= */
+
+  .post-card h2 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .post-excerpt,
+  .post-full p {
+    font-size: 14px;
+  }
+
+  /* =========================
+     Proof Thumbnail
+     ========================= */
+
+  .proof-thumb {
+    max-width: 100%;
+    height: 110px; /* tighter crop for mobile */
+  }
+
+}
+
+/* =========================
+   Very Small Devices
+   ========================= */
+
+@media (max-width: 480px) {
+
+  .container {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
 }
