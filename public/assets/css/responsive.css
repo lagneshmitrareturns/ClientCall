@@ -1,0 +1,22 @@
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 768px) {
+  .chat-box {
+    height: calc(100vh - 220px);
+  }
+
+  .posts-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .posts-sidebar {
+    order: 2;
+    margin-top: 24px;
+  }
+
+  .posts-content {
+    order: 1;
+  }
+}
