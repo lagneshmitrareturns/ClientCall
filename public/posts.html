@@ -11,95 +11,99 @@
 
 <body>
 
-  <div class="posts-layout">
+  <div class="container">
 
-    <!-- LEFT SIDEBAR -->
-    <aside class="posts-sidebar">
-      <h3>Astrology Domains</h3>
-      <ul>
-        <li class="active">Divisional Charts</li>
-        <li>Marriage Analysis</li>
-        <li>Karmic Patterns</li>
-        <li>Career Blocks</li>
-        <li>12th House Studies</li>
-        <li>Psychology & Planets</li>
-      </ul>
-    </aside>
+    <div class="posts-layout">
 
-    <!-- RIGHT FEED -->
-    <main class="posts-feed">
+      <!-- LEFT SIDEBAR (10%) -->
+      <aside class="posts-sidebar card">
+        <h3>Astrology Domains</h3>
+        <ul>
+          <li><strong>Divisional Charts</strong></li>
+          <li>Marriage Analysis</li>
+          <li>Karmic Patterns</li>
+          <li>Career Blocks</li>
+          <li>12th House Studies</li>
+          <li>Psychology & Planets</li>
+        </ul>
+      </aside>
 
-      <!-- POST CARD -->
-      <article class="post-card">
+      <!-- RIGHT CONTENT (90%) -->
+      <main class="posts-content">
 
-        <h2>
-          Why Marriage Gets Delayed Even When D1 Looks Perfect
-        </h2>
+        <!-- POST CARD -->
+        <article class="card post-card">
 
-        <div class="post-meta">
-          <span>Category: Marriage</span>
-          <span>Views: 128</span>
-          <span>Engagement: High</span>
-        </div>
-
-        <!-- EXCERPT -->
-        <p class="post-excerpt">
-          Many people obsess over the D1 chart and still feel confused when
-          marriage does not materialise. The truth is, D1 alone never tells the
-          complete story. What actually blocks marriage often hides deeper...
-        </p>
-
-        <!-- FULL POST (HIDDEN INITIALLY) -->
-        <div class="post-full hidden">
-          <p>
-            Marriage is not denied simply because the 7th house looks weak.
-            In real cases, delay is usually caused by a mismatch between
-            D9 promise, running dasha, and the psychological readiness of the
-            native.
-          </p>
-
-          <p>
-            I have repeatedly observed charts where Venus is strong in D1,
-            yet marriage keeps slipping away. When checked deeper, the D9
-            either shows detachment, karmic debt, or an unfinished emotional
-            loop from past lives.
-          </p>
-
-          <p>
-            Another overlooked factor is the Moon. If the Moon is under
-            affliction or placed in dusthana houses, the native may
-            unconsciously reject commitment even while desiring it.
-          </p>
-
-          <p>
-            This is why blanket remedies fail. Without decoding D9, dasha,
-            and emotional signature together, marriage timing remains
-            misunderstood.
-          </p>
+          <h2>
+            Why Marriage Gets Delayed Even When D1 Looks Perfect
+          </h2>
 
           <p class="muted">
-            — LagneshMitra | Technical Insight
+            Category: Marriage · Views: 128 · Engagement: High
           </p>
-        </div>
 
-        <!-- ACTION BUTTONS -->
-        <button class="btn btn-primary toggle-btn">
-          View Details
-        </button>
+          <!-- EXCERPT -->
+          <p class="post-excerpt">
+            Many people obsess over the D1 chart and still feel confused when
+            marriage does not materialise. The truth is, D1 alone never tells
+            the complete story. What actually blocks marriage often hides deeper...
+          </p>
 
-      </article>
+          <!-- FULL POST -->
+          <div class="post-full hidden">
 
-    </main>
+            <p>
+              Marriage is not denied simply because the 7th house looks weak.
+              In real cases, delay is usually caused by a mismatch between
+              D9 promise, running dasha, and the psychological readiness of the
+              native.
+            </p>
+
+            <p>
+              I have repeatedly observed charts where Venus is strong in D1,
+              yet marriage keeps slipping away. When checked deeper, the D9
+              either shows detachment, karmic debt, or an unfinished emotional
+              loop from past lives.
+            </p>
+
+            <p>
+              Another overlooked factor is the Moon. If the Moon is under
+              affliction or placed in dusthana houses, the native may
+              unconsciously reject commitment even while desiring it.
+            </p>
+
+            <p>
+              This is why blanket remedies fail. Without decoding D9, dasha,
+              and emotional signature together, marriage timing remains
+              misunderstood.
+            </p>
+
+            <p class="muted">
+              — LagneshMitra | Technical Insight
+            </p>
+
+          </div>
+
+          <!-- ACTION -->
+          <button class="btn btn-primary toggle-btn">
+            View Details
+          </button>
+
+        </article>
+
+      </main>
+
+    </div>
 
   </div>
 
-  <!-- SIMPLE TOGGLE SCRIPT (TEMP) -->
+  <!-- TOGGLE SCRIPT -->
   <script>
     document.querySelectorAll(".toggle-btn").forEach(btn => {
       btn.addEventListener("click", () => {
-        const post = btn.closest(".post-card");
-        const full = post.querySelector(".post-full");
-        const excerpt = post.querySelector(".post-excerpt");
+        const card = btn.closest(".post-card");
+        const full = card.querySelector(".post-full");
+        const excerpt = card.querySelector(".post-excerpt");
 
         full.classList.toggle("hidden");
         excerpt.classList.toggle("hidden");
