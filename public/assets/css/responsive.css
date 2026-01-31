@@ -1,9 +1,29 @@
 /* =========================
-   Responsive – Mobile & Tablet
+   Responsive – Tablet & Mobile
+   Desktop-first approach
    ========================= */
 
+
 /* =========================
-   Tablets & Mobiles
+   Tablets (<=1024px)
+   ========================= */
+
+@media (max-width: 1024px) {
+
+  /* Posts: keep 10–90 but tighter */
+  .posts-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
+  }
+
+  .posts-sidebar {
+    font-size: 13.5px;
+  }
+}
+
+
+/* =========================
+   Tablets & Mobiles (<=768px)
    ========================= */
 
 @media (max-width: 768px) {
@@ -24,27 +44,28 @@
      Posts Layout
      ========================= */
 
-  /* Switch 10–90 grid → stacked */
+  /* Switch grid → stacked (INTENTIONAL) */
   .posts-layout {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* Sidebar goes below content */
+  /* Content comes first */
+  .posts-content {
+    order: 1;
+  }
+
+  /* Sidebar goes below */
   .posts-sidebar {
     order: 2;
     margin-top: 16px;
     padding: 14px;
     font-size: 13px;
+    position: relative;
   }
 
   .posts-sidebar ul li {
     margin-bottom: 4px;
-  }
-
-  /* Content first */
-  .posts-content {
-    order: 1;
   }
 
   /* =========================
@@ -59,6 +80,7 @@
   .post-excerpt,
   .post-full p {
     font-size: 14px;
+    line-height: 1.6;
   }
 
   /* =========================
@@ -67,13 +89,13 @@
 
   .proof-thumb {
     max-width: 100%;
-    height: 110px; /* tighter crop for mobile */
+    height: 110px;
   }
-
 }
 
+
 /* =========================
-   Very Small Devices
+   Very Small Devices (<=480px)
    ========================= */
 
 @media (max-width: 480px) {
@@ -98,5 +120,4 @@
     padding: 9px 14px;
     font-size: 14px;
   }
-
 }
