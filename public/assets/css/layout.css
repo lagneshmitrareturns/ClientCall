@@ -7,6 +7,7 @@
   max-width: 1100px;
   margin: auto;
   padding: 16px;
+  width: 100%;
 }
 
 /* Card wrapper */
@@ -18,20 +19,26 @@
   margin-bottom: 16px;
 }
 
+
 /* =========================
    POSTS LAYOUT (DESKTOP LAW)
-   10–90 System (Fixed + Fluid)
+   10–90 System
+   Fixed Sidebar + Fluid Content
    ========================= */
 
 .posts-layout {
   display: grid;
-  grid-template-columns: 220px 1fr; /* FIXED sidebar + fluid content */
+  grid-template-columns: 220px 1fr; /* sidebar fixed, content fluid */
   gap: 24px;
   align-items: flex-start;
   width: 100%;
 }
 
-/* LEFT SIDEBAR (10%) */
+
+/* =========================
+   LEFT SIDEBAR (10%)
+   ========================= */
+
 .posts-sidebar {
   font-size: 14px;
   opacity: 0.9;
@@ -48,6 +55,7 @@
 .posts-sidebar ul {
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
 /* Sidebar items */
@@ -55,21 +63,22 @@
   margin-bottom: 8px;
   color: var(--text-muted);
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: color 0.2s ease;
 }
 
-/* Hover / Active feel (future ready) */
+/* Hover / Active feel (future-ready) */
 .posts-sidebar li:hover {
   color: var(--text-main);
 }
+
 
 /* =========================
    RIGHT CONTENT (90%)
    ========================= */
 
 .posts-content {
-  line-height: 1.75;
   width: 100%;
+  line-height: 1.75;
 }
 
 /* Individual post card spacing safety */
