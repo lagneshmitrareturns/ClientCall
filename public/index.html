@@ -14,10 +14,10 @@
   <!-- LAYOUT / CONTAINERS / GRID -->
   <link rel="stylesheet" href="/assets/css/layout.css" />
 
-  <!-- UI COMPONENTS (cards, buttons, badges, proof-thumb) -->
+  <!-- UI COMPONENTS -->
   <link rel="stylesheet" href="/assets/css/components.css" />
 
-  <!-- RESPONSIVE OVERRIDES -->
+  <!-- RESPONSIVE -->
   <link rel="stylesheet" href="/assets/css/responsive.css" />
 </head>
 
@@ -25,16 +25,38 @@
 
   <div class="container">
 
-    <!-- HERO -->
-    <header class="card hero">
-      <h1>🕉️ LagneshMitra</h1>
-      <p class="tagline">
-        Astrophycological Guidance · Marriage · Career · Karma
-      </p>
-      <p class="muted">
-        Authentic · Human · Confidential
-      </p>
+    <!-- TOP BRAND + MENU BAR -->
+    <header class="card" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      
+      <!-- BRAND -->
+      <div>
+        <h1 style="margin-bottom:4px;">🕉️ LagneshMitra</h1>
+        <p class="muted" style="font-size:13px;">
+          Astrophycological Guidance · Marriage · Career · Karma
+        </p>
+      </div>
+
+      <!-- MENU -->
+      <nav style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="/posts.html" class="btn btn-primary" style="font-size:13px;">
+          Posts
+        </a>
+        <a href="/payments.html" class="btn btn-success" style="font-size:13px;">
+          Pay
+        </a>
+        <a href="/chat.html" class="btn btn-danger" style="font-size:13px;">
+          Chat
+        </a>
+      </nav>
+
     </header>
+
+    <!-- TRUST STRIP -->
+    <section class="card">
+      <p class="muted" style="text-align:center;">
+        Authentic · Human · Confidential · No AI Guesswork
+      </p>
+    </section>
 
     <!-- PLATFORM STATUS -->
     <section class="card">
@@ -59,9 +81,9 @@
       </ul>
     </section>
 
-    <!-- REDDIT PROOF (THUMBNAIL MODE) -->
+    <!-- REDDIT PROOF -->
     <section class="card proof">
-      <h2>🔥 After Immense Success on Reddit</h2>
+      <h2>🔥 Authority Built on Reddit</h2>
       <p class="muted">
         Selected public analyses that gained strong organic traction.
       </p>
@@ -76,7 +98,7 @@
       </div>
 
       <p class="muted" style="margin-top:12px; text-align:center;">
-        👉 Click to view full post insights & metrics
+        👉 Click to view full post insights & engagement metrics
       </p>
     </section>
 
@@ -84,10 +106,15 @@
     <section class="card">
       <h2>💬 Start a Private Consultation</h2>
       <p>
-        Begin a one-to-one confidential discussion directly.
+        Choose how you want to begin — chat first or secure your slot directly.
       </p>
-      <a href="/chat.html" class="btn btn-primary full-width">
+
+      <a href="/chat.html" class="btn btn-primary full-width" style="margin-bottom:10px;">
         Enter Private Chat
+      </a>
+
+      <a href="/payments.html" class="btn btn-success full-width">
+        💳 Pay for Consultation
       </a>
     </section>
 
