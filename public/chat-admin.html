@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LagneshMitra – Admin Inbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- FONT CONTROL -->
+  <link rel="stylesheet" href="/assets/css/fonts.css" />
+
+  <!-- BASE -->
+  <link rel="stylesheet" href="/assets/css/base.css" />
+
+  <!-- LAYOUT -->
+  <link rel="stylesheet" href="/assets/css/layout.css" />
+
+  <!-- COMPONENTS -->
+  <link rel="stylesheet" href="/assets/css/components.css" />
+
+  <!-- RESPONSIVE -->
+  <link rel="stylesheet" href="/assets/css/responsive.css" />
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- =========================
+       ADMIN HEADER
+       ========================= -->
+  <div class="card chat-header">
+    <div>
+      <h3>🛡️ Admin Inbox</h3>
+      <span class="badge badge-open">Secure Mode</span>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <a href="/posts.html" class="btn btn-danger" style="font-size:13px;">
+        ← Exit Admin
+      </a>
+    </div>
+  </div>
+
+  <!-- =========================
+       ADMIN LAYOUT
+       ========================= -->
+  <div class="posts-layout">
+
+    <!-- =========================
+         LEFT: CHAT THREADS
+         ========================= -->
+    <aside class="posts-sidebar card">
+      <h3>📥 Conversations</h3>
+
+      <ul id="threadList">
+        <!-- Dynamic later -->
+        <li><strong>User #001</strong><br><span class="muted">Marriage Query</span></li>
+        <li><strong>User #002</strong><br><span class="muted">Career Block</span></li>
+        <li><strong>User #003</strong><br><span class="muted">12th House</span></li>
+      </ul>
+    </aside>
+
+    <!-- =========================
+         RIGHT: MESSAGE VIEW
+         ========================= -->
+    <main class="posts-content">
+
+      <!-- MESSAGE VIEW -->
+      <div class="card chat-box">
+
+        <!-- Messages -->
+        <div class="chat-messages" id="adminMessages">
+
+          <!-- SAMPLE MSGS -->
+          <div class="message user">
+            Sir my marriage is delayed even though D1 looks good.
+          </div>
+
+          <div class="message admin">
+            Noted. I will check D9 and dasha before commenting.
+          </div>
+
+        </div>
+
+        <!-- =========================
+             ADMIN REPLY BAR
+             ========================= -->
+        <form id="adminReplyForm" class="chat-input">
+          <input
+            type="text"
+            id="adminReplyInput"
+            placeholder="Type admin reply…"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn btn-primary">
+            Reply
+          </button>
+        </form>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     FIREBASE + ADMIN LOGIC
+     ========================= -->
+<script type="module">
+  import { db, serverTimestamp } from "../src/firebase.js";
+  import {
+    collection,
+    addDoc
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const form = document.getElementById("adminReplyForm");
+  const input = document.getElementById("adminReplyInput");
+  const messages = document.getElementById("adminMessages");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const text = input.value.trim();
+    if (!text) return;
+
+    // UI push
+    const msg = document.createElement("div");
+    msg.className = "message admin";
+    msg.innerText = text;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+
+    // FIREBASE WRITE (collection placeholder)
+    try {
+      await addDoc(collection(db, "admin_replies"), {
+        message: text,
+        role: "admin",
+        createdAt: serverTimestamp(),
+      });
+    } catch (err) {
+      console.error("Admin reply error:", err);
+    }
+
+    input.value = "";
+  });
+</script>
+
+</body>
+</html>
