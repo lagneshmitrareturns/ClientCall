@@ -1,0 +1,23 @@
+/* =========================
+   Fonts
+   ========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,600&display=swap');
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--text-heading);
+  font-style: italic;
+  letter-spacing: 0.6px;
+}
+
+p, li, span {
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-style: italic;
+}
